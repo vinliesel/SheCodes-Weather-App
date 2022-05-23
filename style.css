@@ -1,0 +1,96 @@
+h1 {
+  text-align: center;
+  margin: 40px 0px 5px;
+  font-weight: 200;
+}
+h3 {
+  font-size: 30px;
+}
+h4 {
+  text-align: center;
+  font-size: 25px;
+}
+h5 {
+  font-size: 50px;
+  font-weight: 200;
+}
+ul {
+  list-style-type: none;
+}
+.card {
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  box-shadow: gray;
+}
+.card-body {
+  text-align: center;
+}
+.card-text {
+  font-size: 12px;
+  color: grey;
+  font-weight: 300;
+}
+button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 10px;
+  border-color: black;
+  font-weight: 300;
+  font-size: 10px;
+  padding: 2px 5px;
+  background-color: rgba(187, 187, 187, 0);
+  box-shadow: 4px 3px 5px grey;
+}
+button:hover {
+  font-weight: bold;
+}
+.search-city {
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 10px;
+  border-color: black;
+  font-weight: 300;
+  font-size: 12px;
+  padding: 2px 5px;
+  background-color: rgba(187, 187, 187, 0);
+}
+.search-button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 40px;
+  font-size: 10px;
+  background-color: (187, 187, 187, 0);
+}
+body,
+.card {
+  background: linear-gradient(
+    359.3deg,
+    rgba(187, 187, 187, 0) 1%,
+    rgb(196, 214, 252) 70.9%
+  );
+}
+
+.day1,
+.day2,
+.day3,
+.day4,
+.day5 {
+  font-size: 25px;
+  color: grey;
+}
+.col-2 {
+  color: grey;
+  font-size: 13px;
+}
+.emoji {
+  font-size: larger;
+}
+.sun {
+  color: grey;
+  margin: 20px 0px 60px;
+  text-align: center;
+}
