@@ -49,7 +49,7 @@ function cityTemperature(event) {
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let tempDisplay = document.querySelector("h5");
-  tempDisplay.innerHTML = `${temperature}â„‰`;
+  tempDisplay.innerHTML = `${temperature}℉`;
 }
 
 //GeoLocate
@@ -72,7 +72,7 @@ function locate(position) {
 function showTemperatureAndCity(response) {
   let temperature = Math.round(response.data.main.temp);
   let tempDisplay = document.querySelector("h5");
-  tempDisplay.innerHTML = `${temperature}â„‰`;
+  tempDisplay.innerHTML = `${temperature}℉`;
   let name = response.data.name;
   let nameDisplay = document.querySelector("#searched-city");
   nameDisplay.innerHTML = `${name}`;
