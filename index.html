@@ -21,24 +21,34 @@
   <body>
     <div class="container">
       <h1 id="searched-city">Portland, ME</h1>
-      <h4><em id="today">Sunday 3/28/22</em> <br />🌧</h4>
-      <div class="card" style="width: 10rem">
+      <h4><em id="today"></em> <br />🌧</h4>
+      <div class="card" style="width: 25rem">
         <div class="card-body">
-          <h5 class="card-title"><em>46ºF</em></h5>
-          <p class="card-text" class="message">bring an umbrella</p>
+          <h5 class="card-title"><span>46ºF | ºC</span></h5>
+          <p class="card-text" class="message">
+            It's rainy. Bring an umbrella.
+          </p>
+          <div class="row">
+            <div class="col-4 weather-data">Precipitation: 0%</div>
+            <div class="col-4 weather-data">Humidity: 0%</div>
+            <div class="col-4 weather-data">Wind Speed: 0mph</div>
+          </div>
         </div>
       </div>
       <button>Current Location</button>
-      <form id="city-search">
-        <input
-          class="search-city"
-          type="search"
-          placeholder="search your city..."
-          autofocus="on"
-          id="search-city"
-        />
-        <input class="search-button" type="submit" value="🔍" />
-      </form>
+      <span id="search">
+        <form id="city-search">
+          <input
+            class="search-city"
+            type="search"
+            placeholder="search your city..."
+            autofocus="on"
+            id="search-city"
+          />
+          <input class="search-button" type="submit" value="🔍" />
+        </form>
+      </span>
+
       <div class="row day1Temps">
         <div class="col-6 day1">Monday</div>
         <div class="col-2">
@@ -59,7 +69,6 @@
         </div>
         <div class="col-2 emoji">☁️</div>
       </div>
-
       <div class="row day2Temps">
         <div class="col-6 day2">Tuesday</div>
         <div class="col-2">
@@ -80,7 +89,6 @@
         </div>
         <div class="col-2 emoji">☀️</div>
       </div>
-
       <div class="row day3Temps">
         <div class="col-6 day3">Wednesday</div>
         <div class="col-2">
@@ -101,7 +109,6 @@
         </div>
         <div class="col-2 emoji">☀️</div>
       </div>
-
       <div class="row day4Temps">
         <div class="col-6 day4">Thursday</div>
         <div class="col-2">
@@ -122,7 +129,6 @@
         </div>
         <div class="col-2 emoji">🌧</div>
       </div>
-
       <div class="row day5Temps">
         <div class="col-6 day5">Friday</div>
         <div class="col-2">
@@ -150,9 +156,7 @@
         <div class="col-6">
           🌅 <em>Sunset <strong>7:01pm</strong></em>
         </div>
-        <br />
-        <br />
-        <p>
+        <p class="open-source">
           <a
             href="https://github.com/vinliesel/SheCodes-Weather-App"
             target="_blank"
