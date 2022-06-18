@@ -43,6 +43,13 @@ body,
   position: relative;
   top: -15px;
 }
+.active {
+  color: black;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+}
 a {
   text-decoration: none;
 }
