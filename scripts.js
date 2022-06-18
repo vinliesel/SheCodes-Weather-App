@@ -68,3 +68,18 @@ function search(city) {
 
 let searchForm = document.querySelector("#city-search-form");
 searchForm.addEventListener("submit", displaySubmit);
+
+function geoLocate() {
+  navigator.geolocation.getCurrentPosition(locate);
+}
+function locate(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKey = "eb6bcf966cb5441d483acafc8350d5e6";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
+
+  axios.get(apiUrl).then(displayMain);
+}
+
+let locationButton = document.querySelector("button");
+locationButton.addEventListener("click", geoLocate);
