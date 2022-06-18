@@ -20,7 +20,7 @@
   </head>
   <body>
     <div class="container">
-      <h1 id="searched-city"></h1>
+      <h1 id="main-city"></h1>
       <h4><em id="today"></em> <br />🌧</h4>
       <div class="card" style="width: 25rem">
         <div class="card-body">
@@ -29,12 +29,18 @@
             ><span id="unit">ºF | <a href="#">ºC</a></span>
           </h5>
           <p class="card-text" class="message">
-            It's rainy. Bring an umbrella.
+            <span id="description"></span>. Bring an umbrella.
           </p>
           <div class="row">
-            <div class="col-4 weather-data">Precipitation: 0%</div>
-            <div class="col-4 weather-data">Humidity: 0%</div>
-            <div class="col-4 weather-data">Wind Speed: 0mph</div>
+            <div class="col-4 weather-data">
+              Feels Like: <span id="feels-like"></span>º
+            </div>
+            <div class="col-4 weather-data">
+              Humidity: <span id="humidity"></span>%
+            </div>
+            <div class="col-4 weather-data">
+              Wind Speed: <span id="wind"></span>mph
+            </div>
           </div>
         </div>
       </div>

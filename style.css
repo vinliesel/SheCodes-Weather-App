@@ -44,6 +44,9 @@ a {
   color: grey;
   font-weight: 300;
 }
+#description {
+  text-transform: capitalize;
+}
 .weather-data {
   display: block;
   margin: 0 auto;
