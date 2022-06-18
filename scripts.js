@@ -52,9 +52,19 @@ if (minute < 10) {
   minute = `0${minute}`;
 }
 
-let units = "imperial";
-let city = "Miami";
-let apiKey = "eb6bcf966cb5441d483acafc8350d5e6";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+function displaySubmit(event) {
+  event.preventDefault();
+  let searchedCity = document.querySelector("#searched-city");
+  search(searchedCity.value);
+}
 
-axios.get(apiUrl).then(displayMain);
+function search(city) {
+  let units = "imperial";
+  let apiKey = "eb6bcf966cb5441d483acafc8350d5e6";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(displayMain);
+}
+
+let searchForm = document.querySelector("#city-search-form");
+searchForm.addEventListener("submit", displaySubmit);
