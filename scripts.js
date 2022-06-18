@@ -1,5 +1,4 @@
 function displayMain(response) {
-  console.log(response.data);
   let sunrise = new Date(response.data.sys.sunrise * 1000);
   let sunriseHour = sunrise.getHours();
   let sunriseMinute = sunrise.getMinutes();
@@ -48,7 +47,8 @@ if (minute < 10) {
 }
 
 let units = "imperial";
+let city = "Brisbane";
 let apiKey = "eb6bcf966cb5441d483acafc8350d5e6";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Miami&appid=${apiKey}&units=${units}`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
 axios.get(apiUrl).then(displayMain);
