@@ -1,5 +1,11 @@
 function displayMain(response) {
   console.log(response.data);
+  let sunrise = new Date(response.data.sys.sunrise * 1000);
+  let sunriseHour = sunrise.getHours();
+  let sunriseMinute = sunrise.getMinutes();
+  let sunset = new Date(response.data.sys.sunset * 1000);
+  let sunsetHour = sunset.getHours();
+  let sunsetMinute = sunset.getMinutes();
   let tempDisplay = document.querySelector("#main-temp");
   tempDisplay.innerHTML = Math.round(response.data.main.temp);
   let cityDisplay = document.querySelector("#main-city");
@@ -14,7 +20,12 @@ function displayMain(response) {
   windDisplay.innerHTML = Math.round(response.data.wind.speed);
   let todayDate = document.querySelector("#today");
   todayDate.innerHTML = `${day} ${month}/${date} at ${hour}:${minute}`;
+  let sunriseDisplay = document.querySelector("#sunrise");
+  sunriseDisplay.innerHTML = `${sunriseHour}:${sunriseMinute}`;
+  let sunsetDisplay = document.querySelector("#sunset");
+  sunsetDisplay.innerHTML = `${sunsetHour}:${sunsetMinute}`;
 }
+
 let days = [
   "Sunday",
   "Monday",

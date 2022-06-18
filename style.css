@@ -44,7 +44,7 @@ a {
   color: grey;
   font-weight: 300;
 }
-#description {
+.card-text:first-letter {
   text-transform: capitalize;
 }
 .weather-data {
