@@ -1,10 +1,4 @@
 function displayMain(response) {
-  let sunrise = new Date(response.data.sys.sunrise * 1000);
-  let sunriseHour = sunrise.getHours();
-  let sunriseMinute = sunrise.getMinutes();
-  let sunset = new Date(response.data.sys.sunset * 1000);
-  let sunsetHour = sunset.getHours();
-  let sunsetMinute = sunset.getMinutes();
   let tempDisplay = document.querySelector("#main-temp");
   tempDisplay.innerHTML = Math.round(response.data.main.temp);
   let cityDisplay = document.querySelector("#main-city");
@@ -19,6 +13,18 @@ function displayMain(response) {
   windDisplay.innerHTML = Math.round(response.data.wind.speed);
   let todayDate = document.querySelector("#today");
   todayDate.innerHTML = `${day} ${month}/${date} at ${hour}:${minute}`;
+  let iconDisplay = document.querySelector("#icon");
+  iconDisplay.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconDisplay.setAttribute("alt", response.data.weather[0].description);
+  let sunrise = new Date(response.data.sys.sunrise * 1000);
+  let sunriseHour = sunrise.getHours();
+  let sunriseMinute = sunrise.getMinutes();
+  let sunset = new Date(response.data.sys.sunset * 1000);
+  let sunsetHour = sunset.getHours();
+  let sunsetMinute = sunset.getMinutes();
   let sunriseDisplay = document.querySelector("#sunrise");
   sunriseDisplay.innerHTML = `${sunriseHour}:${sunriseMinute}`;
   let sunsetDisplay = document.querySelector("#sunset");
@@ -47,7 +53,7 @@ if (minute < 10) {
 }
 
 let units = "imperial";
-let city = "Brisbane";
+let city = "Miami";
 let apiKey = "eb6bcf966cb5441d483acafc8350d5e6";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 

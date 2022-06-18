@@ -10,6 +10,13 @@ h4 {
   text-align: center;
   font-size: 15px;
 }
+#icon {
+  display: block;
+  margin: 0 auto;
+  width: 60px;
+  margin-bottom: -20px;
+  margin-top: -10px;
+}
 body,
 .card {
   background: linear-gradient(
