@@ -22,9 +22,15 @@ function displayMain(response) {
   let sunrise = new Date(response.data.sys.sunrise * 1000);
   let sunriseHour = sunrise.getHours();
   let sunriseMinute = sunrise.getMinutes();
+  if (sunriseMinute < 10) {
+    sunriseMinute = `0${sunriseMinute}`;
+  }
   let sunset = new Date(response.data.sys.sunset * 1000);
   let sunsetHour = sunset.getHours();
   let sunsetMinute = sunset.getMinutes();
+  if (sunsetMinute < 10) {
+    sunsetMinute = `0${sunsetMinute}`;
+  }
   let sunriseDisplay = document.querySelector("#sunrise");
   sunriseDisplay.innerHTML = `${sunriseHour}:${sunriseMinute}`;
   let sunsetDisplay = document.querySelector("#sunset");
