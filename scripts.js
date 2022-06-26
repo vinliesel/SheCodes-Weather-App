@@ -1,4 +1,5 @@
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastDisplay = document.querySelector("#forecast");
   let forecastHTML = ``;
   let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
@@ -31,6 +32,13 @@ function displayForecast() {
 
   forecastDisplay.innerHTML = forecastHTML;
 }
+
+function getForecastData(coordinates) {
+  let apiKey = "eb6bcf966cb5441d483acafc8350d5e6";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayMain(response) {
   let tempDisplay = document.querySelector("#main-temp");
   tempDisplay.innerHTML = Math.round(response.data.main.temp);
@@ -71,6 +79,8 @@ function displayMain(response) {
 
   fahrenheitTemp = response.data.main.temp;
   feelsLikeFahrenheitTemp = response.data.main.feels_like;
+
+  getForecastData(response.data.coord);
 }
 
 let days = [
@@ -156,5 +166,3 @@ celsiusLink.addEventListener("click", displayMetric);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayImperial);
-
-displayForecast();
