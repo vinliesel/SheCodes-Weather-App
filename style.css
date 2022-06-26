@@ -118,8 +118,8 @@ ul {
   color: grey;
   font-size: 13px;
 }
-.emoji {
-  font-size: larger;
+.forecast-emoji {
+  font-size: 15px;
 }
 .sun {
   color: grey;

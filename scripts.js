@@ -1,3 +1,36 @@
+function displayForecast() {
+  let forecastDisplay = document.querySelector("#forecast");
+  let forecastHTML = ``;
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="row day1Temps">
+        <div class="col-6 day1">${day}</div>
+        <div class="col-2">
+          <ul>
+            <li>High</li>
+            <li>
+              <em><strong class="forecast-day-high">34ºF</strong></em>
+            </li>
+          </ul>
+        </div>
+        <div class="col-2">
+          <ul>
+            <li>Low</li>
+            <li>
+              <em><strong class="forecast-day-low">21ºF</strong></em>
+            </li>
+          </ul>
+        </div>
+        <div class="col-2 forecast-emoji">☁️</div>
+      </div>
+  `;
+  });
+
+  forecastDisplay.innerHTML = forecastHTML;
+}
 function displayMain(response) {
   let tempDisplay = document.querySelector("#main-temp");
   tempDisplay.innerHTML = Math.round(response.data.main.temp);
@@ -123,3 +156,5 @@ celsiusLink.addEventListener("click", displayMetric);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayImperial);
+
+displayForecast();
