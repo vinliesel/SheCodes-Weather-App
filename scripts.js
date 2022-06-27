@@ -1,19 +1,36 @@
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastDisplay = document.querySelector("#forecast");
   let forecastHTML = ``;
-  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="row day1Temps">
-        <div class="col-6 day1">${day}</div>
+        <div class="col-6 day1">${formatDay(forecastDay.dt)}</div>
         <div class="col-2">
           <ul>
             <li>High</li>
             <li>
-              <em><strong class="forecast-day-high">34ºF</strong></em>
+              <em><strong class="forecast-day-high">${Math.round(
+                forecastDay.temp.max
+              )}ºF</strong></em>
             </li>
           </ul>
         </div>
@@ -21,13 +38,21 @@ function displayForecast(response) {
           <ul>
             <li>Low</li>
             <li>
-              <em><strong class="forecast-day-low">21ºF</strong></em>
+              <em><strong class="forecast-day-low">${Math.round(
+                forecastDay.temp.min
+              )}ºF</strong></em>
             </li>
           </ul>
         </div>
-        <div class="col-2 forecast-emoji">☁️</div>
+       <div class="col-2 forecast-emoji">
+          <img src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt="" width=35 />
+        </div>
       </div>
   `;
+    }
   });
 
   forecastDisplay.innerHTML = forecastHTML;

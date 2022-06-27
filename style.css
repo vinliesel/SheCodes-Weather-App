@@ -120,6 +120,7 @@ ul {
 }
 .forecast-emoji {
   font-size: 15px;
+  padding-left: 40px;
 }
 .sun {
   color: grey;
