@@ -71,6 +71,47 @@ function displayMain(response) {
   cityDisplay.innerHTML = response.data.name;
   let descriptionDisplay = document.querySelector("#description");
   descriptionDisplay.innerHTML = response.data.weather[0].description;
+
+  let funDescription = document.querySelector("#fun-description");
+  if (
+    response.data.weather[0].description === "clear sky" ||
+    "few clouds" ||
+    "few clouds: 11-25%" ||
+    "scattered clouds: 25-50%" ||
+    "scattered clouds" ||
+    "broken clouds" ||
+    "broken clouds: 51-84%" ||
+    "overcast clouds" ||
+    "overcast clouds: 85-100%"
+  ) {
+    funDescription.innerHTML = "Enjoy the day and wear your sunscreen!";
+  } else {
+    if (
+      response.data.weather[0].description === "thunderstorm" ||
+      "thunderstorm with light rain" ||
+      "thunderstorm with rain" ||
+      "thunderstorm with heavy rain" ||
+      "light thunderstorm" ||
+      "heavy thunderstorm" ||
+      "ragged thunderstorm" ||
+      "thunderstorm with light drizzle" ||
+      "thunderstorm with drizzle" ||
+      "thunderstorm with heavy drizzle"
+    ) {
+      funDescription.innerHTML = "When thunder roars, go indoors.";
+    }
+  }
+  //else {
+  //if (response.data.weather[0].description === "mist" || "light intensity drizzle" || "drizzle" || "heavy intensity drizzle" || "light intensity drizzle rain" || "drizzle rain" || "heavy intensity drizzle rain" || "shower rain and drizzle " || "heavy shower rain and drizzle" || "shower drizzle"
+  // ) {
+  // funDescription.innerHTML = "Wear your raincoat";
+  // }}
+  //} //else {
+  // if (response.data.weather[0].description === "x") {
+  // funDescription.innerHTML = "x";
+  //}
+  // }
+
   let feelsLikeDisplay = document.querySelector("#feels-like");
   feelsLikeDisplay.innerHTML = Math.round(response.data.main.feels_like);
   let humidityDisplay = document.querySelector("#humidity");
