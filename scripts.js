@@ -82,35 +82,76 @@ function displayMain(response) {
     "broken clouds" ||
     "broken clouds: 51-84%" ||
     "overcast clouds" ||
-    "overcast clouds: 85-100%"
+    "overcast clouds: 85-100%" ||
+    "fog"
   ) {
     funDescription.innerHTML = "Enjoy the day and wear your sunscreen!";
-  } else {
-    if (
-      response.data.weather[0].description === "thunderstorm" ||
-      "thunderstorm with light rain" ||
-      "thunderstorm with rain" ||
-      "thunderstorm with heavy rain" ||
-      "light thunderstorm" ||
-      "heavy thunderstorm" ||
-      "ragged thunderstorm" ||
-      "thunderstorm with light drizzle" ||
-      "thunderstorm with drizzle" ||
-      "thunderstorm with heavy drizzle"
-    ) {
-      funDescription.innerHTML = "When thunder roars, go indoors.";
-    }
+  } else if (
+    response.data.weather[0].description === "thunderstorm" ||
+    "thunderstorm with light rain" ||
+    "thunderstorm with rain" ||
+    "thunderstorm with heavy rain" ||
+    "light thunderstorm" ||
+    "heavy thunderstorm" ||
+    "ragged thunderstorm" ||
+    "thunderstorm with light drizzle" ||
+    "thunderstorm with drizzle" ||
+    "thunderstorm with heavy drizzle"
+  ) {
+    funDescription.innerHTML = "When thunder roars, go indoors.";
+  } else if (
+    response.data.weather[0].description === "mist" ||
+    "light intensity drizzle" ||
+    "drizzle" ||
+    "heavy intensity drizzle" ||
+    "light intensity drizzle rain" ||
+    "drizzle rain" ||
+    "heavy intensity drizzle rain" ||
+    "shower rain and drizzle " ||
+    "heavy shower rain and drizzle" ||
+    "shower drizzle" ||
+    "mist"
+  ) {
+    funDescription.innerHTML = "Wear your raincoat.";
+  } else if (
+    response.data.weather[0].description === "rain" ||
+    "light rain" ||
+    "moderate rain" ||
+    "heavy intensity rain" ||
+    "very heavy rain" ||
+    "extreme rain" ||
+    "freezing rain" ||
+    "light intensity shower rain" ||
+    "shower rain" ||
+    "heavy intensity shower rain" ||
+    "ragged shower rain"
+  ) {
+    funDescription.innerHTML = "Don't forget your umbrella.";
+  } else if (
+    response.data.weather[0].description === "light snow" ||
+    "snow" ||
+    "heavy snow" ||
+    "sleet" ||
+    "light shower sleet" ||
+    "shower sleet" ||
+    "light rain and snow" ||
+    "rain and snow" ||
+    "light shower snow" ||
+    "shower snow" ||
+    "heavy shower snow" ||
+    "squalls"
+  ) {
+    funDescription.innerHTML = "Bundle up and stay warm.";
+  } else if (
+    response.data.weather[0].description === "smoke" ||
+    "haze" ||
+    "sand/dust whirls" ||
+    "sand" ||
+    "sand" ||
+    "volcanic ash"
+  ) {
+    funDescription.innerHTML = "Mask up or stay safe inside";
   }
-  //else {
-  //if (response.data.weather[0].description === "mist" || "light intensity drizzle" || "drizzle" || "heavy intensity drizzle" || "light intensity drizzle rain" || "drizzle rain" || "heavy intensity drizzle rain" || "shower rain and drizzle " || "heavy shower rain and drizzle" || "shower drizzle"
-  // ) {
-  // funDescription.innerHTML = "Wear your raincoat";
-  // }}
-  //} //else {
-  // if (response.data.weather[0].description === "x") {
-  // funDescription.innerHTML = "x";
-  //}
-  // }
 
   let feelsLikeDisplay = document.querySelector("#feels-like");
   feelsLikeDisplay.innerHTML = Math.round(response.data.main.feels_like);
